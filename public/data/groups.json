@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "FL_trip",
+    "person": [
+      {
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "AZ_trip",
+    "person": [
+      {
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "New york trip",
+    "person": [
+      {
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "New york trip",
+    "person": [
+      {
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Montly house expense",
+    "person": [
+      {
+      }
+    ]
+  }
+]

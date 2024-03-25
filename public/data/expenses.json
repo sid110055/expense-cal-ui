@@ -1,0 +1,24 @@
+[
+  {
+    "person_id": 1,
+    "group_id": 1,
+    "date_of_entry": "22-mar-2024",
+    "expense_price": "10",
+    "expense_description": "GAS"
+  },
+  {
+    "person_id": 2,
+    "group_id": 1,
+    "date_of_entry": "22-mar-2024",
+    "expense_price": "100",
+    "expense_description": "FOOD"
+  },
+  {
+    "person_id": 1,
+    "group_id": 1,
+    "date_of_entry": "22-mar-2024",
+    "expense_price": "100",
+    "expense_description": "groceries"
+  }
+
+]
