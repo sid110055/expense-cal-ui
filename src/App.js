@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import PersonForm from './personform'; // Import the PersonForm component
 
-function App() {
+const App = () => {
+  // Define a function to handle adding a new person
+  const handleAddPerson = (newPerson) => {
+    // Logic to handle adding a new person
+    console.log('New person added:', newPerson);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      
+      {/* Render the PersonForm component */}
+      <PersonForm onAddPerson={handleAddPerson} />
+     
     </div>
+    
   );
-}
+};
 
 export default App;
