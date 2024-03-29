@@ -2,21 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Typography, TextField, Button, Select, MenuItem } from '@mui/material';
 
 const Group = () => {
-const Header = () => {
-    return (
-        <header className="header" >
-            <Typography variant="h4" align="center">Expense Tracker</Typography>
-        </header>
-    );
-};
 
-const Footer = () => {
-    return (
-        <footer className="footer">
-            <Typography variant="body2" align="center">&copy; 2024 Expense Tracker. All rights reserved.</Typography>
-        </footer>
-    );
-};
 // State to hold the groups
 const [groups, setGroups] = useState([]);
 
@@ -58,7 +44,7 @@ const handleNewGroupNameChange = (event) => {
 
 return (
     <>
-        <Header />
+
         <Container maxWidth="sm" className="container">
             <Typography variant="h2" align="center"style={{ marginBottom: '100px' }}>Group Form</Typography>
 
@@ -87,7 +73,7 @@ return (
             <Typography variant="h4" align="center" style={{ marginTop: '50px',marginBottom: '10px' }}>Selected Group:</Typography>
             <Typography align="center"style={{ marginBottom: '100px' }}>{selectedGroup ? `Selected Group ID: ${selectedGroup}` : 'No group selected'}</Typography>
         </Container>
-        <Footer />
+
     </>
 );
 };
