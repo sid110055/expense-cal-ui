@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Typography, TextField, Button, Select, MenuItem, List, ListItem, ListItemText, IconButton } from '@mui/material';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import { Button, Container, IconButton, List, ListItem, ListItemText, MenuItem, Select, TextField, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 
 const Group = () => {
   const [groups, setGroups] = useState([]);
@@ -9,8 +9,13 @@ const Group = () => {
   const [persons, setPersons] = useState([]);
 
   useEffect(() => {
-    fetch('/data/groups.json')
-      .then(response => response.json())
+    fetch('./data/groups.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch groups');
+        }
+        return response.json();
+      })
       .then(data => setGroups(data.Groups))
       .catch(error => console.error('Error fetching groups:', error));
 
@@ -28,6 +33,7 @@ const Group = () => {
       persons: []
     };
     setGroups([...groups, newGroup]);
+    console.log(groups)
     setNewGroupName('');
   };
 
@@ -42,7 +48,8 @@ const Group = () => {
   const addPersonToGroup = (personId) => {
     const newGroups = groups.map(group => {
       if (group.id === Number(selectedGroup)) {
-        return { ...group, persons: [...group.persons, personId] };
+        console.log({ ...group, persons: [...group.person, personId] })
+        return { ...group, persons: [...group.person, personId] };
       }
       return group;
     });
@@ -65,6 +72,7 @@ const Group = () => {
   };
 
   const selectedGroupDetails = groups.find(group => group.id === Number(selectedGroup));
+
 
   return (
     <Container maxWidth="sm" className="container">
@@ -98,7 +106,7 @@ const Group = () => {
           </Typography>
 
           <List>
-            {selectedGroupDetails?.persons.map(personId => (
+            {selectedGroupDetails?.persons && selectedGroupDetails.persons.map(personId => (
               <ListItem key={personId} secondaryAction={
                 <IconButton edge="end" aria-label="delete" onClick={() => removePersonFromGroup(personId)}>
                   <RemoveCircleOutlineIcon />
@@ -112,7 +120,7 @@ const Group = () => {
           <Typography variant="h6" align="center" style={{ margin: '20px 0' }}>Add Person to Group:</Typography>
           <Select fullWidth value="" onChange={(e) => addPersonToGroup(Number(e.target.value))}>
             <MenuItem value="">Select Person...</MenuItem>
-            {persons.filter(person => !selectedGroupDetails.persons.includes(person.id)).map(person => (
+            {persons.filter(person => !selectedGroupDetails.person.includes(person.id)).map(person => (
               <MenuItem key={person.id} value={person.id}>{person.name}</MenuItem>
             ))}
           </Select>
