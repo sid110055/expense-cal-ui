@@ -1,13 +1,14 @@
 [
   {
     "id": 1,
-    "name": "",
-    "user_name": "",
-    "pwd": "",
+    "name": "navi",
+    "user_name": "jha",
+    "pwd": "sdbak",
     "expenses": [
       {
 
       }
     ]
   }
+  
 ]
