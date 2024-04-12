@@ -30,7 +30,7 @@ const Group = () => {
     const newGroup = {
       id: groups.length + 1,
       name: newGroupName,
-      persons: []
+      person: []
     };
     setGroups([...groups, newGroup]);
     console.log(groups)
